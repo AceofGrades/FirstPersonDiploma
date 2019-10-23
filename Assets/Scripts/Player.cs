@@ -11,21 +11,28 @@ public class Player : MonoBehaviour
     public float groundRayDistance = 1.1f;
     public LayerMask groundLayer;
     public float currentSpeed;
+    public int curWeapon;
+    public GameObject activeWeapon;
+    public Transform[] equipment;
+    public Animator arm;
 
     private CharacterController controller;
     private Vector3 motion;
     private bool isJumping = false;
+    private bool isSwitching;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
+        isSwitching = true;
     }
 
     void Update()
     {
         float inputH = Input.GetAxis("Horizontal");
         float inputV = Input.GetAxis("Vertical");
+        float w = Input.GetAxis("Mouse ScrollWheel");
         bool inputJump = Input.GetButtonDown("Jump");
         Move(inputH, inputV);
         //jump
@@ -55,6 +62,20 @@ public class Player : MonoBehaviour
         //applies motion to controller
         motion.y += gravity * Time.deltaTime;
         controller.Move(motion * Time.deltaTime);
+
+        if(w > 0f)
+        {
+            curWeapon = curWeapon + 1;
+            arm.SetBool("weaponSwap", true);
+            isSwitching = true;
+
+        }
+        else if(w < 0f)
+        {
+            curWeapon = curWeapon - 1;
+
+            isSwitching = true;
+        }
     }
 
     //test if the player is grounded
@@ -85,5 +106,17 @@ public class Player : MonoBehaviour
     {
         motion.y = jumpHeight;
         isJumping = true;
+    }
+
+    public void WeaponCycle(int num)
+    {
+        curWeapon = num;
+        for (int i = 0; i < equipment.Length; i++)
+        {
+            if (i == num)
+                equipment[i].gameObject.SetActive(true);
+            else
+                equipment[i].gameObject.SetActive(false);
+        }
     }
 }
