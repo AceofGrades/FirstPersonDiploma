@@ -8,52 +8,53 @@ public class SecurityCode : MonoBehaviour
     public string[] code;
     public TMP_Text display;
     public string codeOutput;
-    public int securityCode;
+    public string securityCode;
     public bool isUnlocked;
+
+    public KeyCode[] numberPad;
+    public string[] numberPadValue = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if(code[3] != "*")
+        KeyCodeInsert();
+    }
+
+    public void KeyCodeInsert()
+    {
+        for (int d = 0; d < code.Length; d++)
         {
-            codeOutput = int.Parse(display.text);
-            if(codeOutput == securityCode)
+            if (code[d].Contains("*"))
+            {
+                for (int n = 0; n < numberPad.Length; n++)
+                {
+                    if (Input.GetKeyDown(numberPad[n]))
+                    {
+                        Debug.Log("p");
+                        code[d] = code[d].Replace("*", numberPadValue[n]);
+                    }
+                }
+            }
+        }
+        if (code[code.Length-1] != "*")
+        {
+            codeOutput = display.text;
+            if (codeOutput == securityCode)
             {
                 isUnlocked = true;
             }
             else
             {
-                for (int i = 0; i < code.Length; i++)
+                for (int d = 0; d < code.Length; d++)
                 {
-                    code[i] = "*";
+                    code[d] = "*";
                 }
-                display.text = code[0] + code[1] + code[2] + code[3];
+                display.text = numberPadValue[0] + numberPadValue[1] + numberPadValue[2] + numberPadValue[3];
 
             }
         }
     }
-
-    public void Keypad(int value)
-    {
-        Debug.Log(value);
-        for (int i = 0; i < code.Length; i++)
-        {
-            Debug.Log("loop");
-
-            if (code[i].Contains("*"))
-            {
-                Debug.Log("Contains");
-                code[i] = code[i].Replace("*", value.ToString());
-                Debug.Log("Replace");
-                display.text = code[0] + code[1] + code[2] + code[3];
-                return;
-
-            }
-        }
-    }
-
-
 }
