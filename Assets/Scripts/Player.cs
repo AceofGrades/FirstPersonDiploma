@@ -11,28 +11,28 @@ public class Player : MonoBehaviour
     public float groundRayDistance = 1.1f;
     public LayerMask groundLayer;
     public float currentSpeed;
-    public int curWeapon;
-    public GameObject activeWeapon;
-    public Transform[] equipment;
-    public Animator arm;
+    // public int curWeapon;
+    // public GameObject activeWeapon;
+    // public Transform[] equipment;
+    // public Animator arm;
 
     private CharacterController controller;
     private Vector3 motion;
     private bool isJumping = false;
-    private bool isSwitching;
+    // private bool isSwitching;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
-        isSwitching = true;
+        // isSwitching = true;
     }
 
     void Update()
     {
         float inputH = Input.GetAxis("Horizontal");
         float inputV = Input.GetAxis("Vertical");
-        float w = Input.GetAxis("Mouse ScrollWheel");
+        // float w = Input.GetAxis("Mouse ScrollWheel");
         bool inputJump = Input.GetButtonDown("Jump");
         Move(inputH, inputV);
         //jump
@@ -63,19 +63,28 @@ public class Player : MonoBehaviour
         motion.y += gravity * Time.deltaTime;
         controller.Move(motion * Time.deltaTime);
 
-        if(w > 0f)
+        /*if(w > 0f)
         {
             curWeapon = curWeapon + 1;
-            arm.SetBool("weaponSwap", true);
+            arm.SetTrigger("WeaponSwap");
             isSwitching = true;
 
         }
         else if(w < 0f)
         {
             curWeapon = curWeapon - 1;
-
+            arm.SetTrigger("WeaponSwap");
             isSwitching = true;
         }
+        if (curWeapon < 0)
+        {
+            curWeapon = equipment.Length - 1;
+        }
+        if (curWeapon > equipment.Length - 1)
+        {
+            curWeapon = 0;
+        }
+        */
     }
 
     //test if the player is grounded
@@ -108,15 +117,23 @@ public class Player : MonoBehaviour
         isJumping = true;
     }
 
-    public void WeaponCycle(int num)
+    /*public void WeaponCycle()
     {
-        curWeapon = num;
+       
         for (int i = 0; i < equipment.Length; i++)
         {
-            if (i == num)
-                equipment[i].gameObject.SetActive(true);
+            if (i == curWeapon)
+            {
+                activeWeapon = equipment[i].gameObject;
+                activeWeapon.SetActive(true);
+            }              
+
             else
+            {
                 equipment[i].gameObject.SetActive(false);
+            }
         }
+
     }
+    */
 }

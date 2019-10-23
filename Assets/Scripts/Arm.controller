@@ -9,8 +9,8 @@ AnimatorController:
   m_Name: Arm
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: weaponSwap
-    m_Type: 4
+  - m_Name: WeaponSwap
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -37,7 +37,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: weaponSwap
+    m_ConditionEvent: WeaponSwap
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102755449013703562}
@@ -183,7 +183,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: weaponDownAnim
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101342971389751136}
@@ -210,7 +210,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: weaponUpAnim
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101811694465568178}
@@ -243,7 +243,7 @@ AnimatorStateMachine:
     m_Position: {x: 228, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102755449013703562}
-    m_Position: {x: 60, y: 240, z: 0}
+    m_Position: {x: 48, y: 228, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102844114888483632}
     m_Position: {x: 276, y: 228, z: 0}
