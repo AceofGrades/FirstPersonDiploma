@@ -7,7 +7,7 @@ public class SecurityCode : MonoBehaviour
 {
     public string[] code;
     public TMP_Text display;
-    public int codeOutput;
+    public string codeOutput;
     public int securityCode;
     public bool isUnlocked;
     void Start()
