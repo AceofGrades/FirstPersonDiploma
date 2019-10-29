@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
+       Cursor.lockState = CursorLockMode.Locked;
         // isSwitching = true;
     }
 
