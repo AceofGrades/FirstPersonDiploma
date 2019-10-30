@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class RoomManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public GameObject[] roomList;
+    public Transform[] ventsInRoom;
+    public int currentRoom;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
