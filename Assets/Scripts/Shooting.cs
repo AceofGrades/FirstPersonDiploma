@@ -50,7 +50,6 @@ public class Shooting : MonoBehaviour
         // Check if the player has pressed the fire button and if enough time has elapsed since they last fired
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
-            particleEm.enabled = true;
             // Update the time when our player can fire next
             nextFire = Time.time + fireRate;
 
