@@ -9,12 +9,16 @@ public class Shooting : MonoBehaviour
     public float weaponRange = 50f;                                        // Distance in Unity units over which the player can fire
     public float hitForce = 100f;                                        // Amount of force which will be added to objects with a rigidbody shot by the player
     public Transform gunEnd;                                            // Holds a reference to the gun end object, marking the muzzle location of the gun
+    public Transform effectPrefab;
 
     private Camera fpsCam;                                                // Holds a reference to the first person camera
     private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);    // WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
     private AudioSource gunAudio;                                        // Reference to the audio source which will play our shooting sound effect
     private LineRenderer laserLine;                                        // Reference to the LineRenderer component which will display our laserline
     private float nextFire;                                                // Float to store the time the player will be allowed to fire again, after firing
+    private ParticleSystem particle;
+    private ParticleSystem.EmissionModule particleEm;
+    private Transform clone;
 
 
     void Start()
@@ -29,12 +33,24 @@ public class Shooting : MonoBehaviour
         fpsCam = GetComponentInParent<Camera>();
     }
 
+    private void OnEnable()
+    {
+        clone = Instantiate(effectPrefab);
+        clone.parent = transform;
+        clone.localPosition = Vector3.forward * 2f;
+        clone.localRotation = Quaternion.identity;
+        particle = clone.GetComponent<ParticleSystem>();
+        particle.Play();
+        particleEm = particle.emission;
+        particleEm.enabled = false;
+    }
 
     void Update()
     {
         // Check if the player has pressed the fire button and if enough time has elapsed since they last fired
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
+            particleEm.enabled = true;
             // Update the time when our player can fire next
             nextFire = Time.time + fireRate;
 
@@ -49,6 +65,7 @@ public class Shooting : MonoBehaviour
 
             // Set the start position for our visual effect for our laser to the position of gunEnd
             laserLine.SetPosition(0, gunEnd.position);
+
 
             // Check if our raycast has hit anything
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
@@ -77,6 +94,7 @@ public class Shooting : MonoBehaviour
             {
                 // If we did not hit anything, set the end of the line to a position directly in front of the camera at the distance of weaponRange
                 laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
+                particleEm.enabled = false;
             }
         }
     }
