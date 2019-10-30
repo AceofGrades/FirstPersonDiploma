@@ -31,8 +31,6 @@ public class Enemy : MonoBehaviour
     public float playerDetectionTimer = 0f;
     public float playerDetectionLimit = 10f;
 
-    public Room room;
-
     #endregion Variables
 
     #region Start

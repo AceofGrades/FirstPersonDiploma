@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35503228}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 95123515}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 230761991}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 231991423}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406027918}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 693157219}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -470,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 796757048}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,6 +529,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1004109279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1004109281}
+  - component: {fileID: 1004109280}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1004109280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004109279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6eca298a077aaa40b78bc375c422a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomList:
+  - {fileID: 5329264395670934588}
+  - {fileID: 5329264395484222512}
+  - {fileID: 5329264395027989353}
+  - {fileID: 5329264394194921467}
+  - {fileID: 5329264395291622932}
+  - {fileID: 5329264393762124035}
+  - {fileID: 5329264394766112801}
+  - {fileID: 5329264395625089088}
+  - {fileID: 5329264394485731838}
+  ventsInRoom:
+  - {fileID: 406027918}
+  - {fileID: 1062163672}
+  - {fileID: 95123515}
+  - {fileID: 35503228}
+  - {fileID: 693157219}
+  - {fileID: 796757048}
+  - {fileID: 2015902918}
+  - {fileID: 230761991}
+  - {fileID: 231991423}
+  currentRoom: 0
+--- !u!4 &1004109281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004109279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1062163671
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062163672}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +761,6 @@ MonoBehaviour:
   currentState: 0
   playerDetectionTimer: 0
   playerDetectionLimit: 2
-  room: {fileID: 0}
 --- !u!54 &1069264449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -865,7 +928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2015902918}
   m_Layer: 0
-  m_Name: EnemyWaypoint
+  m_Name: EnemyWaypoint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,28 +1010,13 @@ GameObject:
   - component: {fileID: 5329264393762124046}
   - component: {fileID: 5329264393762124033}
   - component: {fileID: 5329264393762124032}
-  - component: {fileID: 5329264393762124036}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: Room6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!114 &5329264393762124036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264393762124035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 796757048}
 --- !u!33 &5329264393762124046
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1075,28 +1123,13 @@ GameObject:
   - component: {fileID: 5329264394194921350}
   - component: {fileID: 5329264394194921465}
   - component: {fileID: 5329264394194921464}
-  - component: {fileID: 5329264394194921468}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Room4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!114 &5329264394194921468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264394194921467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 35503228}
 --- !u!4 &5329264394485731834
 Transform:
   m_ObjectHideFlags: 0
@@ -1168,9 +1201,8 @@ GameObject:
   - component: {fileID: 5329264394485731837}
   - component: {fileID: 5329264394485731836}
   - component: {fileID: 5329264394485731839}
-  - component: {fileID: 5329264394485731840}
   m_Layer: 0
-  m_Name: Cube (8)
+  m_Name: Room9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1189,20 +1221,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5329264394485731840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264394485731838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 231991423}
 --- !u!1 &5329264394766112801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,28 +1233,13 @@ GameObject:
   - component: {fileID: 5329264394766112812}
   - component: {fileID: 5329264394766112815}
   - component: {fileID: 5329264394766112814}
-  - component: {fileID: 5329264394766112802}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Room7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!114 &5329264394766112802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264394766112801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 2015902918}
 --- !u!33 &5329264394766112812
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1321,28 +1324,13 @@ GameObject:
   - component: {fileID: 5329264395027989364}
   - component: {fileID: 5329264395027989367}
   - component: {fileID: 5329264395027989366}
-  - component: {fileID: 5329264395027989354}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Room3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!114 &5329264395027989354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264395027989353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 95123515}
 --- !u!33 &5329264395027989364
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1486,9 +1474,8 @@ GameObject:
   - component: {fileID: 5329264395291622931}
   - component: {fileID: 5329264395291622930}
   - component: {fileID: 5329264395291622933}
-  - component: {fileID: 5329264395291622934}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Room5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1507,20 +1494,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5329264395291622934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264395291622932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 693157219}
 --- !u!1 &5329264395484222512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,9 +1506,8 @@ GameObject:
   - component: {fileID: 5329264395484222527}
   - component: {fileID: 5329264395484222526}
   - component: {fileID: 5329264395484222513}
-  - component: {fileID: 5329264395484222514}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Room2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,20 +1526,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5329264395484222514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264395484222512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 1062163672}
 --- !u!4 &5329264395484222524
 Transform:
   m_ObjectHideFlags: 0
@@ -1678,9 +1636,8 @@ GameObject:
   - component: {fileID: 5329264395625089103}
   - component: {fileID: 5329264395625089102}
   - component: {fileID: 5329264395625089089}
-  - component: {fileID: 5329264395625089090}
   m_Layer: 0
-  m_Name: Cube (7)
+  m_Name: Room8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1699,20 +1656,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5329264395625089090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264395625089088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 230761991}
 --- !u!4 &5329264395625089100
 Transform:
   m_ObjectHideFlags: 0
@@ -1843,9 +1786,8 @@ GameObject:
   - component: {fileID: 5329264395670934587}
   - component: {fileID: 5329264395670934586}
   - component: {fileID: 5329264395670934589}
-  - component: {fileID: 5329264395670934590}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Room1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1864,17 +1806,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5329264395670934590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329264395670934588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48e8469fc9991b4baefda794f771f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  roomVent: {fileID: 406027918}
