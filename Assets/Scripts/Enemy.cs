@@ -21,7 +21,8 @@ public class Enemy : MonoBehaviour
     {
         Patrol,
         Seek,
-        Vent
+        Vent,
+        Idle
     }
     public State currentState;
     private Transform target;
@@ -38,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         waypoints = waypointParent.GetComponentsInChildren<Transform>();
         agent = GetComponent<NavMeshAgent>();
-        currentState = State.Patrol;
+        currentState = State.Idle;
     }
     #endregion
 
@@ -55,6 +56,9 @@ public class Enemy : MonoBehaviour
                 Seek();
                 break;
             case State.Vent:
+
+                break;
+            case State.Idle:
 
                 break;
             default:
