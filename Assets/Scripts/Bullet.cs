@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int damage = 10;
     public float speed = 10f;
     public GameObject effectsPrefab;
     public Transform line;
-    public AudioSource weaponFx;
-    public AudioClip bulletFx;
 
     private Rigidbody rigid;
 
+    // Start is called before the first frame update
     void Awake()
     {
         // Get component on awake so we don't miss it if it starts disabled
         rigid = GetComponent<Rigidbody>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (rigid.velocity.magnitude < 0)
@@ -27,13 +28,17 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnCollisionEnter(Collision col)
     {
-        // ContactPoint contact = col.contacts[0];
+        ContactPoint contact = col.contacts[0];
         // Instantiate(effectsPrefab, contact.point, Quaternion.LookRotation(contact.normal));
+        Enemy enemy = col.collider.GetComponent<Enemy>();
+        if (enemy)
+        {
+            //enemy.TakeDamage(damage);
+        }
         // Destroy bullet
         Destroy(gameObject);
-        AudioSource.PlayClipAtPoint(bulletFx, transform.position, 0.5f);
     }
 
     public void Fire(Vector3 lineOrigin, Vector3 direction)
