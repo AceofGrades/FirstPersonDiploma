@@ -20,6 +20,8 @@ public class Player : Room
     private Vector3 motion;
     private bool isJumping = false;
 
+    public Transform player;
+
 
     public BoxCollider[] roomDetection;
     public int currentRoom;
@@ -28,11 +30,13 @@ public class Player : Room
     public LayerMask layerMask;
     // private bool isSwitching;
 
+    public Transform lastPosition;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
-       Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         // isSwitching = true;
     }
 
@@ -44,7 +48,7 @@ public class Player : Room
         bool inputJump = Input.GetButtonDown("Jump");
         Move(inputH, inputV);
         //jump
-        if(IsGrounded() && (Input.GetButtonDown("Jump")))
+        if (IsGrounded() && (Input.GetButtonDown("Jump")))
         {
             Jump(jumpHeight);
         }
@@ -61,11 +65,14 @@ public class Player : Room
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             currentSpeed = runSpeed;
+
         }
         //off
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             currentSpeed = walkSpeed;
+            lastPosition.position = transform.position;
+
         }
         //applies motion to controller
         motion.y += gravity * Time.deltaTime;
