@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Interactable
+  - Room
   layers:
   - Default
   - TransparentFX
