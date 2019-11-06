@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Room
 {
     public float runSpeed = 8f;
     public float walkSpeed = 6f;
@@ -19,6 +19,13 @@ public class Player : MonoBehaviour
     private CharacterController controller;
     private Vector3 motion;
     private bool isJumping = false;
+
+
+    public BoxCollider[] roomDetection;
+    public int currentRoom;
+
+    public Camera cam;
+    public LayerMask layerMask;
     // private bool isSwitching;
 
     void Start()
@@ -116,6 +123,35 @@ public class Player : MonoBehaviour
     {
         motion.y = jumpHeight;
         isJumping = true;
+    }
+
+    public void InteractCamera()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 1f, layerMask))
+        {
+
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        //detects which room the player is in
+        if (other.CompareTag("Room"))
+        {
+            //searches through collider array
+            for (int i = 0; i < roomDetection.Length; i++)
+            {
+                //if collider is in the array we are searching through
+                if (other == roomDetection[i])
+                {
+                    //set room value to colliders value
+                    roomValue = i;
+                    Debug.Log(roomValue);
+                    return;
+                }
+            }
+        }
     }
 
     /*public void WeaponCycle()
