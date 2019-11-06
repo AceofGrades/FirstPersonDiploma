@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public BoxCollider roomCollider;
-
+    public int roomValue;
 }

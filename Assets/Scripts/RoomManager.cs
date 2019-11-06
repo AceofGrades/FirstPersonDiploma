@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomManager : MonoBehaviour
+public class RoomManager : Room
 {
-
-    public GameObject[] roomList;
-    public Transform[] ventsInRoom;
+    public BoxCollider[] roomDetection;
     public int currentRoom;
-    void Start()
+
+    private void Start()
     {
-        
+
     }
 
-    void Update()
+    public void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            roomDetection.SetValue(currentRoom, roomValue);
+            Debug.Log(roomValue);
+        }
     }
+
 }
