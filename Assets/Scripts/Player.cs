@@ -22,6 +22,8 @@ public class Player : Room
 
     public Transform player;
 
+    public int playerRoomValue;
+
 
     public BoxCollider[] roomDetection;
     public int currentRoom;
@@ -153,8 +155,8 @@ public class Player : Room
                 if (other == roomDetection[i])
                 {
                     //set room value to colliders value
-                    roomValue = i;
-                    Debug.Log(roomValue);
+                    playerRoomValue = i;
+                    Debug.Log(playerRoomValue);
                     return;
                 }
             }

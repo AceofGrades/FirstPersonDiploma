@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Room
 {
     #region Variables
 
@@ -17,17 +17,21 @@ public class Enemy : MonoBehaviour
     private Transform[] waypoints;
     private int currentIndex = 1;
     private NavMeshAgent agent;
+
+    public BoxCollider[] roomDetection;
+    public int currentRoom;
+    public Transform[] vents;
+    public int currentVent;
+
     public enum State
     {
         Patrol,
         Seek,
-        Vent,
+        VentTeleport,
         Idle
     }
     public State currentState;
     private Transform target;
-
-
 
     public float playerDetectionTimer = 0f;
     public float playerDetectionLimit = 10f;
@@ -55,11 +59,11 @@ public class Enemy : MonoBehaviour
             case State.Seek:
                 Seek();
                 break;
-            case State.Vent:
-
+            case State.VentTeleport:
+                VentTeleport();
                 break;
             case State.Idle:
-
+                Idle();
                 break;
             default:
                 break;
@@ -93,7 +97,7 @@ public class Enemy : MonoBehaviour
     {
         if (playerDetectionTimer >= playerDetectionLimit)
         {
-            VentTeleport();
+            currentState = State.VentTeleport;
         }
         Transform point = waypoints[currentIndex];
         float distance = Vector3.Distance(transform.position, point.position);
@@ -118,6 +122,18 @@ public class Enemy : MonoBehaviour
             target = other.transform;
             currentState = State.Seek;
         }
+        if (other.CompareTag("Room"))
+        {
+            for (int i = 0; i < roomDetection.Length; i++)
+            {
+                if (other == roomDetection[i])
+                {
+                    roomValue = i;
+                    Debug.Log("enemy in room " + roomValue);
+                    return;
+                }
+            }
+        }
     }
     #endregion
 
@@ -126,13 +142,23 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            currentState = State.Patrol;
+
         }
     }
     #endregion
 
     void VentTeleport()
     {
+        agent.transform.position = vents[roomValue].transform.position;
         playerDetectionTimer = 0f;
     }
+
+    void Idle()
+    {
+        if (playerDetectionTimer >= playerDetectionLimit)
+        {
+            currentState = State.VentTeleport;
+        }
+    }
+
 }
