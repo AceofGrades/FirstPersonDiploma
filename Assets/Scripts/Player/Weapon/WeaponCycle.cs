@@ -20,19 +20,16 @@ public class WeaponCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float w = Input.GetAxis("Mouse ScrollWheel");
-
-        if (w > 0f)
+        if (Input.GetKeyDown(KeyCode.R))
         {
+            arm.SetTrigger("WeaponSwap");
             curWeapon = curWeapon + 1;
-            arm.SetTrigger("WeaponSwap");
             isSwitching = true;
-
         }
-        else if (w < 0f)
+        else if (Input.GetKeyDown(KeyCode.R))
         {
-            curWeapon = curWeapon - 1;
             arm.SetTrigger("WeaponSwap");
+            curWeapon = curWeapon - 1;
             isSwitching = true;
         }
         if (curWeapon < 0)
