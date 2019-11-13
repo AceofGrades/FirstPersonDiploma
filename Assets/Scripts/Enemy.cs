@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : Room
+public class Enemy : MonoBehaviour
 {
     #region Variables
 
+    Player player;
+
+    public GameObject enemy;
+
     public Transform waypointParent;
-    public float moveSpeed = 9f;
+    public float moveSpeed = 2f;
     public float rotateSpeed = 100f;
     public float stoppingDistance = 1f;
     public float gravityDistance = 2f;
@@ -34,13 +38,17 @@ public class Enemy : Room
     private Transform target;
 
     public float playerDetectionTimer = 0f;
-    public float playerDetectionLimit = 10f;
+    public float playerDetectionLimit = 50f;
+
+    public int teleportToRoom;
 
     #endregion Variables
 
     #region Start
     void Start()
     {
+        if (!player) player = FindObjectOfType<Player>();
+
         waypoints = waypointParent.GetComponentsInChildren<Transform>();
         agent = GetComponent<NavMeshAgent>();
         currentState = State.Idle;
@@ -59,9 +67,6 @@ public class Enemy : Room
             case State.Seek:
                 Seek();
                 break;
-            case State.VentTeleport:
-                VentTeleport();
-                break;
             case State.Idle:
                 Idle();
                 break;
@@ -71,34 +76,21 @@ public class Enemy : Room
     }
     #endregion
 
-    #region Gizmos
-    void OnDrawGizmos()
-    {
-        if (waypoints != null && waypoints.Length > 0)
-        {
-            Transform point = waypoints[currentIndex];
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, point.position);
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(point.position, stoppingDistance);
-        }
-    }
-    #endregion
 
     #region Seek
     void Seek()
     {
-        agent.SetDestination(target.position);
+        agent.SetDestination(player.lastPosition.position);
+        if (enemy.transform == player.lastPosition)
+        {
+            currentState = State.Idle;
+        }
     }
     #endregion
 
     #region Patrol
     void Patrol()
     {
-        if (playerDetectionTimer >= playerDetectionLimit)
-        {
-            currentState = State.VentTeleport;
-        }
         Transform point = waypoints[currentIndex];
         float distance = Vector3.Distance(transform.position, point.position);
         if (distance < stoppingDistance)
@@ -109,7 +101,7 @@ public class Enemy : Room
         {
             currentIndex = 1;
         }
-        agent.SetDestination(point.position);
+        agent.SetDestination(target.position);
         transform.position = Vector3.MoveTowards(transform.position, point.position, moveSpeed * Time.deltaTime);
     }
     #endregion
@@ -128,7 +120,7 @@ public class Enemy : Room
             {
                 if (other == roomDetection[i])
                 {
-                    roomValue = i;
+                    int roomValue = i;
                     Debug.Log("enemy in room " + roomValue);
                     return;
                 }
@@ -142,23 +134,18 @@ public class Enemy : Room
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
+            playerDetectionTimer = 0f;
+            currentState = State.Idle;
+            target = player.lastPosition;
         }
     }
     #endregion
 
-    void VentTeleport()
-    {
-        agent.transform.position = vents[roomValue].transform.position;
-        playerDetectionTimer = 0f;
-    }
-
     void Idle()
     {
-        if (playerDetectionTimer >= playerDetectionLimit)
+        if (player.currentPosition != player.lastPosition)
         {
-            currentState = State.VentTeleport;
+            currentState = State.Seek;
         }
     }
-
 }

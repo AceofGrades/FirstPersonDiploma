@@ -810,7 +810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918625957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406027918}
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13df5d32329392e4582ede57f2a50eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomValue: 0
+  enemy: {fileID: 1069264442}
   waypointParent: {fileID: 918625958}
   moveSpeed: 1
   rotateSpeed: 100
@@ -1205,7 +1205,8 @@ MonoBehaviour:
   currentVent: 0
   currentState: 0
   playerDetectionTimer: 0
-  playerDetectionLimit: 2
+  playerDetectionLimit: 5
+  teleportToRoom: 0
 --- !u!54 &1069264449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1220,7 +1221,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 1
 --- !u!1 &1207545401
 GameObject:
@@ -1674,7 +1675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b2fb022f9042a4e807a3c2bbd4e6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomValue: 0
   runSpeed: 8
   walkSpeed: 6
   gravity: -40
@@ -1685,6 +1685,7 @@ MonoBehaviour:
     m_Bits: 2048
   currentSpeed: 0
   player: {fileID: 1800482679}
+  currentPosition: {fileID: 0}
   playerRoomValue: 0
   roomDetection:
   - {fileID: 1346877505}
@@ -1822,7 +1823,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032452766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 384742561}

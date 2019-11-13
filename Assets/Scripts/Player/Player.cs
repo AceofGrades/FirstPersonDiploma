@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Room
+public class Player : MonoBehaviour
 {
     public float runSpeed = 8f;
     public float walkSpeed = 6f;
@@ -21,6 +21,7 @@ public class Player : Room
     private bool isJumping = false;
 
     public Transform player;
+    public Transform currentPosition;
 
     public int playerRoomValue;
 
@@ -44,6 +45,7 @@ public class Player : Room
 
     void Update()
     {
+        currentPosition = transform;
         float inputH = Input.GetAxis("Horizontal");
         float inputV = Input.GetAxis("Vertical");
         // float w = Input.GetAxis("Mouse ScrollWheel");
@@ -70,10 +72,14 @@ public class Player : Room
 
         }
         //off
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            lastPosition.position = player.transform.position;
+        }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             currentSpeed = walkSpeed;
-            lastPosition.position = transform.position;
+            lastPosition.position = player.transform.position;
 
         }
         //applies motion to controller
