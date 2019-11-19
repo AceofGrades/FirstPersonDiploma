@@ -25,12 +25,11 @@ public class Player : MonoBehaviour
 
     public int playerRoomValue;
 
-
     public BoxCollider[] roomDetection;
     public int currentRoom;
 
     public Camera cam;
-    public LayerMask layerMask;
+    public LayerMask interactLayer;
     // private bool isSwitching;
 
     public Transform lastPosition;
@@ -138,15 +137,6 @@ public class Player : MonoBehaviour
     {
         motion.y = jumpHeight;
         isJumping = true;
-    }
-
-    public void InteractCamera()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 1f, layerMask))
-        {
-
-        }
     }
 
     public void OnTriggerEnter(Collider other)
