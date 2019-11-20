@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 690901471}
   - component: {fileID: 690901476}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadParent: {fileID: 1739423340}
   anim: {fileID: 690901471}
-  keyPad: {fileID: 1739423345}
+  keyPad: {fileID: 893031604}
 --- !u!1 &693157218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1282,7 @@ GameObject:
   - component: {fileID: 893031601}
   - component: {fileID: 893031604}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Keypad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1322,7 +1322,7 @@ Transform:
   m_Children:
   - {fileID: 1739423344}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &893031604
 MonoBehaviour:
@@ -1337,6 +1337,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   securityPanel: {fileID: 1586967835}
+  code:
+  - '*'
+  - '*'
+  - '*'
+  - '*'
+  display: {fileID: 244092859}
+  indicator: {fileID: 1713663839}
+  codeOutput: 
+  securityCode: 
+  isUnlocked: 0
+  wrong: 0
+  waitTimer: 0
+  numberPad: 00010000010100000201000003010000040100000501000006010000070100000801000009010000
+  securityKeypad: {fileID: 1990618268}
 --- !u!1 &918625957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,49 +1507,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomValue: 4
---- !u!1 &1004109279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1004109281}
-  - component: {fileID: 1004109280}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1004109280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004109279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6eca298a077aaa40b78bc375c422a23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1004109281
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004109279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1037659549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2238,6 @@ GameObject:
   - component: {fileID: 1649596375}
   - component: {fileID: 1649596374}
   - component: {fileID: 1649596373}
-  - component: {fileID: 1649596376}
   m_Layer: 11
   m_Name: Cube
   m_TagString: Interactable
@@ -2348,36 +2318,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649596371}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1649596376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649596371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be808af2ac5e720499e19e92bb0d399a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numbers:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 0
-  passCode: 
-  randomNumber: 0
-  randomCode: 
-  randomNumbers: 
-  keypad: {fileID: 0}
-  codeReceived: 0
-  text: {fileID: 382017591}
 --- !u!1 &1713663837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,7 +2404,6 @@ GameObject:
   - component: {fileID: 1739423343}
   - component: {fileID: 1739423342}
   - component: {fileID: 1739423341}
-  - component: {fileID: 1739423345}
   m_Layer: 11
   m_Name: Cube
   m_TagString: Interactable
@@ -2545,32 +2484,6 @@ Transform:
   m_Father: {fileID: 893031603}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &1739423345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739423340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46dcfac1c30c7ef4f8b2b8a06a7388a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  code:
-  - '*'
-  - '*'
-  - '*'
-  - '*'
-  display: {fileID: 244092859}
-  indicator: {fileID: 1713663839}
-  codeOutput: 
-  securityCode: 1235
-  isUnlocked: 0
-  wrong: 0
-  waitTimer: 0
-  numberPad: 00010000010100000201000003010000040100000501000006010000070100000801000009010000
-  securityKeypad: {fileID: 1649596376}
 --- !u!1 &1761478245
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990618267
 GameObject:
@@ -2825,7 +2738,7 @@ GameObject:
   - component: {fileID: 1990618269}
   - component: {fileID: 1990618268}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: PasscodeGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2840,10 +2753,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1990618267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d93308ae5cf39574e84a11e04672da7c, type: 3}
+  m_Script: {fileID: 11500000, guid: be808af2ac5e720499e19e92bb0d399a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  securityPanel: {fileID: 1649596371}
+  securityPanel: {fileID: 419865781}
+  numbers:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 0
+  passCode: 
+  randomNumber: 0
+  randomCode: 
+  randomNumbers: 
+  keypad: {fileID: 1990618268}
+  codeReceived: 0
+  text: {fileID: 382017591}
 --- !u!135 &1990618269
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2878,7 +2809,7 @@ Transform:
   m_Children:
   - {fileID: 1649596372}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &2015902917
 GameObject:
@@ -3070,7 +3001,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
