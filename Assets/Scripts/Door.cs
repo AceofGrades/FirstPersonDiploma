@@ -8,11 +8,28 @@ public class Door : MonoBehaviour
     public Animator anim;
     public Keypad keyPad;
 
+    public bool keycodeRequired;
+    public bool keycardRequired;
+
     void Update()
     {
-        if (keyPad.isUnlocked == true)
+        if (keycodeRequired == true && keycardRequired == false)
         {
-            anim.Play("doorAnim");
+            if (keyPad.isUnlocked == true)
+            {
+                anim.Play("doorAnim");
+            }
+        }
+        else if (keycodeRequired == false && keycardRequired == true)
+        {
+
+        }
+        else if (keycodeRequired == true && keycardRequired == true)
+        {
+            if (keyPad.isUnlocked == true)
+            {
+                anim.Play("doorAnim");
+            }
         }
     }
 }
