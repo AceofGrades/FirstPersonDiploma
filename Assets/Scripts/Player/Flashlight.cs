@@ -11,6 +11,7 @@ public class Flashlight : MonoBehaviour
     public Slider batterySlider;
     public float battery;
     public float maxBattery;
+    public float batteryCheese;
     public bool torchOn;
     public bool flashlightEmpty = true;
 
@@ -26,7 +27,24 @@ public class Flashlight : MonoBehaviour
 
     void Update()
     {
+        batteryCheese = Mathf.Clamp(battery, 0, maxBattery);
         battery = Mathf.Clamp(battery, 0, maxBattery);
+
+
+
+        if (battery == ((maxBattery / 3) * 2))
+        {
+            batteryCheese = battery;
+        }
+        if (battery == (maxBattery / 3))
+        {
+            batteryCheese = battery;
+        }
+        if (battery <= 0)
+        {
+            batteryCheese = battery;
+        }
+
         if (flashlightEmpty == true)
         {
             if (Input.GetKeyDown(KeyCode.F) && flashlight.enabled == false)
