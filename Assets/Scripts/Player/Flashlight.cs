@@ -10,12 +10,13 @@ public class Flashlight : MonoBehaviour
 
     public Slider batterySlider;
     public float battery;
-    public float maxBattery;
+    public float maxBattery = 100f;
     public float batteryCheese;
     public bool torchOn;
     public bool flashlightEmpty = true;
 
-    public bool b3,b2,b1;
+    public bool b3, b2, b1;
+    public bool rechargeLock = false;
 
     private void Awake()
     {
@@ -29,45 +30,48 @@ public class Flashlight : MonoBehaviour
         b1 = true;
         b2 = true;
         b3 = true;
-
-        
     }
 
     void Update()
     {
-        battery = Mathf.Clamp(battery, 0, maxBattery);
+        battery = Mathf.Clamp(battery, -5, maxBattery);
         batteryCheese = Mathf.Clamp(batteryCheese, 0, maxBattery);
 
-        if (battery >= 66.66f && b1 == true && b2 == true && b3 == true)
+        if (battery >= 66f)
         {
+            b1 = true;
+            b2 = true;
+            b3 = true;
             batteryCheese = 100f;
         }
-        if (battery <= 66.66f && b1 == true && b2 == true && b3 == false)
+        else if (battery <= 66f && battery >= 33f)
         {
-            batteryCheese = 100f;
-        }
-        if (battery >= 33.33f && b1 == true && b2 == true && b3 == false)
-        {
-            batteryCheese = 66.66f;
             b3 = false;
+            batteryCheese = 66f;
         }
-        if (battery <= 0)
+        else if (battery <= 66f && battery <= 33f && battery >= 0f)
         {
-            batteryCheese = battery;
+            b2 = false;
+            b3 = false;
+            batteryCheese = 33f;
+        }
+        else if (battery <= 66f && battery <= 33f && battery <= 0f)
+        {
+            b1 = false;
+            b2 = false;
+            b3 = false;
         }
 
         if (flashlightEmpty == true)
         {
             if (Input.GetKeyDown(KeyCode.F) && flashlight.enabled == false)
             {
-
                 flashlight.enabled = true;
                 flashlight.transform.parent.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.white * 2f);
                 cameraLight.enabled = true;
             }
             if (Input.GetKeyDown(KeyCode.F) && flashlight.enabled == true && torchOn == true)
             {
-
                 flashlight.enabled = false;
                 flashlight.transform.parent.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black * 2f);
                 cameraLight.enabled = false;
@@ -80,27 +84,30 @@ public class Flashlight : MonoBehaviour
             cameraLight.enabled = false;
         }
 
-
-        if (Input.GetKeyDown(KeyCode.F))
+        if (flashlightEmpty == true)
         {
-            torchOn = !torchOn;
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                torchOn = !torchOn;
+            }
         }
         if (torchOn == true)
         {
             battery -= 0.7f;
             batterySlider.value = batteryCheese;
         }
-        else if (torchOn == false)
+        if (torchOn == false)
         {
-            battery += 0.5f;
-            batterySlider.value = batteryCheese;
+            battery += 0.75f;
+            batterySlider.value = battery;
+
         }
         if (battery <= 0)
         {
             flashlightEmpty = false;
             torchOn = false;
         }
-        else
+        if(battery >= 100f)
         {
             flashlightEmpty = true;
         }
