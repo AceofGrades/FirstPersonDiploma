@@ -137,7 +137,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58116212}
   m_LocalRotation: {x: 0.33138573, y: -0.035310745, z: -0.117816105, w: 0.93544436}
-  m_LocalPosition: {x: 0, y: 0, z: 0.11300027}
+  m_LocalPosition: {x: 0, y: 0, z: 0.126}
   m_LocalScale: {x: 0.0013059601, y: 0.0029304, z: 0.01}
   m_Children:
   - {fileID: 292899603}
@@ -147,8 +147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 37.710003, y: -10.498, z: -17.951}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.182, y: -0.078}
-  m_SizeDelta: {x: 384.2, y: 48}
+  m_AnchoredPosition: {x: 0.164, y: -0.057}
+  m_SizeDelta: {x: 423.1342, y: 214.5829}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &58116214
 MonoBehaviour:
@@ -383,8 +383,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b85cb06267e131b459a320a9d698a65d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9ab4413687d8c46ba4e6e0204385dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 0}
+  currentWeapon: {fileID: 375956500}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,11 +1306,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300010, guid: b85cb06267e131b459a320a9d698a65d, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
