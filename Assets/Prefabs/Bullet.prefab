@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  speed: 0.5
+  speed: 100
   effectsPrefab: {fileID: 0}
   line: {fileID: 5115235204500394578}
 --- !u!136 &9204304181191974080
