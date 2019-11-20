@@ -12,14 +12,21 @@ public class SecurityCode : MonoBehaviour
     public Image indicator;
     public string codeOutput;
     public string securityCode;
-    public bool isUnlocked,wrong;
+    public bool isUnlocked, wrong;
     public float waitTimer;
     [SerializeField]
     public KeyCode[] numberPad;
 
+    public PassCodeGen securityKeypad;
+
     private void Awake()
     {
         indicator.color = Color.yellow;
+    }
+
+    public void Update()
+    {
+        securityCode = securityKeypad.passCode;
     }
     public void KeyCodeInsert()
     {
@@ -41,10 +48,10 @@ public class SecurityCode : MonoBehaviour
                 indicator.color = Color.red;
             }
         }
-        if(wrong)
+        if (wrong)
         {
-            waitTimer+=Time.deltaTime;
-            if(waitTimer > 1f)
+            waitTimer += Time.deltaTime;
+            if (waitTimer > 1f)
             {
                 for (int d = 0; d < code.Length; d++)
                 {
@@ -53,13 +60,13 @@ public class SecurityCode : MonoBehaviour
                 display.text = code[0] + code[1] + code[2] + code[3];
                 wrong = false;
                 waitTimer = 0;
-            }            
+            }
         }
         if (Input.anyKey)
         {
             for (int n = 0; n < numberPad.Length; n++)
             {
-                if (Event.current.Equals(Event.KeyboardEvent(""+numberPad[n])))
+                if (Event.current.Equals(Event.KeyboardEvent("" + numberPad[n])))
                 {
                     for (int d = 0; d < code.Length; d++)
                     {
@@ -69,10 +76,10 @@ public class SecurityCode : MonoBehaviour
                             display.text = code[0] + code[1] + code[2] + code[3];
                             return;
                         }
-                    }   
+                    }
                 }
             }
-        } 
+        }
     }
     private void OnGUI()
     {
