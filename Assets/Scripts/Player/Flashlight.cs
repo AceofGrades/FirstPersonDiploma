@@ -30,8 +30,6 @@ public class Flashlight : MonoBehaviour
         batteryCheese = Mathf.Clamp(battery, 0, maxBattery);
         battery = Mathf.Clamp(battery, 0, maxBattery);
 
-
-
         if (battery == ((maxBattery / 3) * 2))
         {
             batteryCheese = battery;
