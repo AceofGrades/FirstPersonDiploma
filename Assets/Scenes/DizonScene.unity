@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 1
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1801,6 +1801,7 @@ MonoBehaviour:
   batterySlider: {fileID: 58116214}
   battery: 0
   maxBattery: 100
+  batteryCheese: 0
   torchOn: 0
   flashlightEmpty: 1
 --- !u!1001 &1405348105

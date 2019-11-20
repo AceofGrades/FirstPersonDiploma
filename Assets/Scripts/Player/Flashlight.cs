@@ -15,6 +15,8 @@ public class Flashlight : MonoBehaviour
     public bool torchOn;
     public bool flashlightEmpty = true;
 
+    public bool b3,b2,b1;
+
     private void Awake()
     {
         flashlight.enabled = false;
@@ -22,21 +24,32 @@ public class Flashlight : MonoBehaviour
         cameraLight.enabled = false;
         battery = maxBattery;
         batterySlider.maxValue = maxBattery;
-        batterySlider.value = battery;
+        batterySlider.value = batteryCheese;
+        batteryCheese = maxBattery;
+        b1 = true;
+        b2 = true;
+        b3 = true;
+
+        
     }
 
     void Update()
     {
-        batteryCheese = Mathf.Clamp(battery, 0, maxBattery);
         battery = Mathf.Clamp(battery, 0, maxBattery);
+        batteryCheese = Mathf.Clamp(batteryCheese, 0, maxBattery);
 
-        if (battery == ((maxBattery / 3) * 2))
+        if (battery >= 66.66f && b1 == true && b2 == true && b3 == true)
         {
-            batteryCheese = battery;
+            batteryCheese = 100f;
         }
-        if (battery == (maxBattery / 3))
+        if (battery <= 66.66f && b1 == true && b2 == true && b3 == false)
         {
-            batteryCheese = battery;
+            batteryCheese = 100f;
+        }
+        if (battery >= 33.33f && b1 == true && b2 == true && b3 == false)
+        {
+            batteryCheese = 66.66f;
+            b3 = false;
         }
         if (battery <= 0)
         {
@@ -75,12 +88,12 @@ public class Flashlight : MonoBehaviour
         if (torchOn == true)
         {
             battery -= 0.7f;
-            batterySlider.value = battery;
+            batterySlider.value = batteryCheese;
         }
         else if (torchOn == false)
         {
             battery += 0.5f;
-            batterySlider.value = battery;
+            batterySlider.value = batteryCheese;
         }
         if (battery <= 0)
         {
