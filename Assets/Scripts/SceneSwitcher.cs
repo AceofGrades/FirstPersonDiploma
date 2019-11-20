@@ -5,19 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public bool stirlingMode = false;
-
     public void GotoGameScene()
     {
-        if (stirlingMode == false)
-        {
             SceneManager.LoadScene(1);
-        }
-        if (stirlingMode == true)
-        {
-            SceneManager.LoadScene(2);
-        }
-
     }
 
     public void GotoTitleScene()
@@ -25,9 +15,8 @@ public class SceneSwitcher : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void GotoStirlingScene()
+    public void QuitGame()
     {
-        SceneManager.LoadScene(2);
-        stirlingMode = true;
+        Application.Quit();
     }
 }
