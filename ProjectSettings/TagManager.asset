@@ -8,6 +8,8 @@ TagManager:
   - Interactable
   - Room
   - Gun
+  - cam1
+  - cam2
   layers:
   - Default
   - TransparentFX
@@ -23,11 +25,11 @@ TagManager:
   - Interactable
   - Circle
   - Tool
-  - 
-  - 
-  - 
-  - 
-  - 
+  - level1
+  - level2
+  - level3
+  - level4
+  - level5
   - 
   - 
   - 
