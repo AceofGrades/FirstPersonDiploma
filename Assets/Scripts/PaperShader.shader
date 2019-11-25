@@ -62,6 +62,7 @@
 			uniform float _CornerLoss;
 			//amount that _PaperOverlayColor affects the paper texture/screen
 			uniform float _PaperFadeColor;
+			uniform float _PaperTransparentColor;
 			//amount that the paper vs camera is rendered
 			uniform float _PaperToCameraFadeAmount;
 
@@ -129,7 +130,7 @@
 				#endif
 
 				float4 f = tex2D(_MainTex, uvst);
-				float3 paper = tex2D(_TextureOverlay,uv).rgb;
+				float3 paper = tex2D(_TextureOverlay,uv).rgba;
 				float ce = 1;
 				float4 tex1[4];
 				float4 tex2[4];

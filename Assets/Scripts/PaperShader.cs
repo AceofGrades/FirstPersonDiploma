@@ -24,6 +24,8 @@ public class PaperShader : MonoBehaviour
     [Range(0, 1)]
     public float paperToCameraFadeAmount = 1f;
     public Color paperOverlayColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    [Range(0, 1)]
+    public float paperTransparentColor = 1f;
     private Material paperMaterial;
     public Texture2D paper;
     #endregion
@@ -68,6 +70,7 @@ public class PaperShader : MonoBehaviour
             material.SetFloat("_AnimationSpeed", animationSpeed);
             material.SetFloat("_CornerLoss", cornerLoss);
             material.SetFloat("_PaperFadeColor", paperFadeColor);
+            material.SetFloat("_PaperTransparentColor", paperTransparentColor);
             material.SetFloat("_PaperToCameraFadeAmount", paperToCameraFadeAmount);
 
             Graphics.Blit(sourceTexture, destTexture, material);

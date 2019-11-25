@@ -842,7 +842,6 @@ GameObject:
   m_Component:
   - component: {fileID: 64286741}
   - component: {fileID: 64286740}
-  - component: {fileID: 64286739}
   - component: {fileID: 64286742}
   m_Layer: 0
   m_Name: Camera
@@ -851,14 +850,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &64286739
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64286738}
-  m_Enabled: 1
 --- !u!20 &64286740
 Camera:
   m_ObjectHideFlags: 0
@@ -882,7 +873,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000.31
+  far clip plane: 1000
   field of view: 60
   orthographic: 1
   orthographic size: 75
@@ -890,7 +881,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 17408
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 8400000, guid: 871280380087cd344b31b2d78a9673b6, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -928,7 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 947a3f5cdccdf444992b3a7d80bdba98, type: 3}
-  pencilColour: {r: 1, g: 1, b: 1, a: 0}
+  pencilColour: {r: 1, g: 1, b: 1, a: 1}
   pencilSize: 0.0022
   pencilCorrection: 2
   intensity: 1
@@ -937,7 +928,8 @@ MonoBehaviour:
   paperFadeColor: 1
   paperToCameraFadeAmount: 1
   paperOverlayColor: {r: 0, g: 0, b: 0, a: 1}
-  paper: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+  paperTransparentColor: 0
+  paper: {fileID: 0}
 --- !u!1001 &67768835
 PrefabInstance:
   m_ObjectHideFlags: 0
