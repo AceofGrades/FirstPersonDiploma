@@ -21,7 +21,7 @@ public class Flashlight : MonoBehaviour
     private void Awake()
     {
         flashlight.enabled = false;
-        flashlight.transform.parent.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black * 2f);
+        this.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black * 2f);
         cameraLight.enabled = false;
         battery = maxBattery;
         batterySlider.maxValue = maxBattery;
@@ -67,20 +67,20 @@ public class Flashlight : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && flashlight.enabled == false)
             {
                 flashlight.enabled = true;
-                flashlight.transform.parent.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.white * 2f);
+                GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.white * 2f);
                 cameraLight.enabled = true;
             }
             if (Input.GetKeyDown(KeyCode.F) && flashlight.enabled == true && torchOn == true)
             {
                 flashlight.enabled = false;
-                flashlight.transform.parent.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black * 2f);
+                GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black * 2f);
                 cameraLight.enabled = false;
             }
         }
         else
         {
             flashlight.enabled = false;
-            flashlight.transform.parent.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black);
+            GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black);
             cameraLight.enabled = false;
         }
 
