@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     {
         Patrol,
         Seek,
+        Chase,
         VentTeleport,
         Idle
     }
@@ -67,6 +68,9 @@ public class Enemy : MonoBehaviour
             case State.Seek:
                 Seek();
                 break;
+            case State.Chase:
+                Chase();
+                break;
             case State.Idle:
                 Idle();
                 break;
@@ -78,13 +82,13 @@ public class Enemy : MonoBehaviour
 
 
     #region Seek
-    void Seek()
+    void Chase()
     {
         agent.SetDestination(player.lastPosition.position);
-        if (enemy.transform == player.lastPosition)
-        {
-            currentState = State.Idle;
-        }
+    }
+    void Seek()
+    {
+        agent.SetDestination(player.transform.position);
     }
     #endregion
 
@@ -102,6 +106,7 @@ public class Enemy : MonoBehaviour
             currentIndex = 1;
         }
         agent.SetDestination(target.position);
+        Vector3 currentDirection = transform.forward;
         transform.position = Vector3.MoveTowards(transform.position, point.position, moveSpeed * Time.deltaTime);
     }
     #endregion
@@ -145,7 +150,7 @@ public class Enemy : MonoBehaviour
     {
         if (player.currentPosition != player.lastPosition)
         {
-            currentState = State.Seek;
+            currentState = State.Chase;
         }
     }
 }
