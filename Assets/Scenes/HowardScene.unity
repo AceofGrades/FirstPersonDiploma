@@ -4342,7 +4342,7 @@ GameObject:
   - component: {fileID: 318431935}
   - component: {fileID: 318431934}
   m_Layer: 13
-  m_Name: RawImage
+  m_Name: MiniMapBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5214,7 +5214,7 @@ RectTransform:
   m_Children:
   - {fileID: 1811753175}
   m_Father: {fileID: 5703057820484014926}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13763,7 +13763,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5703057820484014926}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1044089241
 Camera:
@@ -16535,7 +16535,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3383cfd7fafceef48bbca32b8d4ecab3, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -16552,13 +16552,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217918998}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 3.93, z: 0.1}
-  m_LocalScale: {x: 0.21155736, y: 0.2115573, z: 0.2115573}
+  m_LocalRotation: {x: -0.00000013240823, y: -0.7071068, z: 0.7071068, w: -0.00000013240823}
+  m_LocalPosition: {x: 0, y: 4.58, z: 0.1}
+  m_LocalScale: {x: 0.22308137, y: 0.22308128, z: 0.22308128}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180.00002}
 --- !u!114 &1217919001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17953,13 +17953,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333445128}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 318431933}
-  m_Father: {fileID: 5703057820484014926}
-  m_RootOrder: 1
+  m_Father: {fileID: 5720892023292568344}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23555,7 +23555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4292453, g: 0.7789498, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -27225,7 +27225,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5720892023292568344}
-  - {fileID: 1333445129}
   - {fileID: 1044089240}
   - {fileID: 396728397}
   m_Father: {fileID: 5703057821365032552}
@@ -27253,7 +27252,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -27261,7 +27260,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 524087
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -27894,6 +27893,7 @@ Transform:
   m_Children:
   - {fileID: 5720892023161639028}
   - {fileID: 5720892023529765063}
+  - {fileID: 1333445129}
   m_Father: {fileID: 5703057820484014926}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27929,7 +27929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036b309e26c247f4c87db0fcb6c06751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: dbeb588f053f93647ae95ff86c5e12bc, type: 2}
+  mat: {fileID: 2100000, guid: 54c8c02aed90c4a4a9e1c4a9bc4eec6b, type: 2}
   dCam: 0
 --- !u!114 &5720892023292568349
 MonoBehaviour:
@@ -27962,8 +27962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: b1c1c287f55fc9c4290ff18884bb3a25, type: 3}
   pencilColour: {r: 1, g: 1, b: 1, a: 0}
-  pencilSize: 0.000128
-  pencilCorrection: 1.28
+  pencilSize: 0.0001
+  pencilCorrection: 2
   intensity: 1
   animationSpeed: 0
   cornerLoss: 1
