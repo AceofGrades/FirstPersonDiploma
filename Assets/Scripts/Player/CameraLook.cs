@@ -12,6 +12,8 @@ public class CameraLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
+
         if(isCursorHidden)
 		{
 			Cursor.lockState = CursorLockMode.Locked;

@@ -3907,7 +3907,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 524288
+    m_Bits: 2621440
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: b90fe131b34ada646ad96354615932c6, type: 2}
   m_TargetDisplay: 0
@@ -16508,7 +16508,7 @@ GameObject:
   - component: {fileID: 1217919000}
   - component: {fileID: 1217918999}
   - component: {fileID: 1217919001}
-  m_Layer: 19
+  m_Layer: 21
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27279,7 +27279,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 514871
+    m_Bits: 524087
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -27311,16 +27311,15 @@ GameObject:
   - component: {fileID: 5703057820484014927}
   - component: {fileID: 5703057820484014928}
   - component: {fileID: 5703057820484014925}
-  - component: {fileID: 5703057820484014931}
-  - component: {fileID: 5703057820484014930}
-  m_Layer: 12
+  - component: {fileID: 5703057820484014932}
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5703057820484014930
+--- !u!114 &5703057820484014932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27329,38 +27328,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5703057820484014929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14860c0edfb7414a96bae2a356fa4d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 036b309e26c247f4c87db0fcb6c06751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 947a3f5cdccdf444992b3a7d80bdba98, type: 3}
-  pencilColour: {r: 1, g: 1, b: 1, a: 1}
-  pencilSize: 0.0022
-  pencilCorrection: 2
-  intensity: 1
-  animationSpeed: 2
-  cornerLoss: 1
-  paperFadeColor: 1
-  paperToCameraFadeAmount: 1
-  paperOverlayColor: {r: 0, g: 0, b: 0, a: 1}
-  paperTransparentColor: 0
-  paper: {fileID: 0}
---- !u!114 &5703057820484014931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5703057820484014929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a41e44aef73fc614998121276011d9cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scanLineJitter: 0
-  _verticalJump: 0
-  _horizontalShake: 0
-  _colourDrift: 0
-  _shader: {fileID: 4800000, guid: b803b2d36d723b342a88e981204eb45a, type: 3}
+  mat: {fileID: 2100000, guid: dbeb588f053f93647ae95ff86c5e12bc, type: 2}
+  dCam: 0
 --- !u!223 &5703057820758700192
 Canvas:
   m_ObjectHideFlags: 0
@@ -27954,6 +27926,7 @@ GameObject:
   - component: {fileID: 5720892023292568344}
   - component: {fileID: 5720892023292568351}
   - component: {fileID: 5720892023292568349}
+  - component: {fileID: 5720892023292568350}
   - component: {fileID: 5720892023292568348}
   m_Layer: 10
   m_Name: Depth Camera
@@ -27969,23 +27942,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5720892023292568347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14860c0edfb7414a96bae2a356fa4d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 036b309e26c247f4c87db0fcb6c06751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 947a3f5cdccdf444992b3a7d80bdba98, type: 3}
-  pencilColour: {r: 1, g: 1, b: 1, a: 1}
-  pencilSize: 0.0022
-  pencilCorrection: 2
-  intensity: 1
-  animationSpeed: 2
-  cornerLoss: 1
-  paperFadeColor: 1
-  paperToCameraFadeAmount: 1
-  paperOverlayColor: {r: 0, g: 0, b: 0, a: 1}
-  paperTransparentColor: 0
-  paper: {fileID: 0}
+  mat: {fileID: 2100000, guid: dbeb588f053f93647ae95ff86c5e12bc, type: 2}
+  dCam: 0
 --- !u!114 &5720892023292568349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28003,6 +27966,30 @@ MonoBehaviour:
   _horizontalShake: 0
   _colourDrift: 0
   _shader: {fileID: 4800000, guid: b803b2d36d723b342a88e981204eb45a, type: 3}
+--- !u!114 &5720892023292568350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720892023292568347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ce3e0b45f76dd4faf64146f4e45d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: b1c1c287f55fc9c4290ff18884bb3a25, type: 3}
+  pencilColour: {r: 1, g: 1, b: 1, a: 0}
+  pencilSize: 0.000128
+  pencilCorrection: 1.28
+  intensity: 1
+  animationSpeed: 0
+  cornerLoss: 1
+  paperFadeColor: 1
+  paperToCameraFadeAmount: 1
+  paperOverlayColor: {r: 0, g: 0, b: 0, a: 1}
+  paperTransparentColor: 1
+  paper: {fileID: 0}
 --- !u!20 &5720892023292568351
 Camera:
   m_ObjectHideFlags: 0
