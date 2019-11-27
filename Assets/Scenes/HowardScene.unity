@@ -27961,8 +27961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41e44aef73fc614998121276011d9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scanLineJitter: 0
-  _verticalJump: 0
+  _scanLineJitter: 0.005
+  _verticalJump: 0.005
   _horizontalShake: 0
   _colourDrift: 0
   _shader: {fileID: 4800000, guid: b803b2d36d723b342a88e981204eb45a, type: 3}
