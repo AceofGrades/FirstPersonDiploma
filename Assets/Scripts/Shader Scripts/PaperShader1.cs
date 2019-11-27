@@ -26,7 +26,7 @@ public class PaperShader1 : MonoBehaviour
     public Color paperOverlayColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     [Range(0, 1)]
     public float paperTransparentColor = 1f;
-    private Material paperMaterial;
+    public Material paperMaterial;
     public Texture2D paper;
     #endregion
     #region Properties
@@ -84,7 +84,7 @@ public class PaperShader1 : MonoBehaviour
     {
         if (paperMaterial)
         {
-            DestroyImmediate(paperMaterial);
+         //   DestroyImmediate(paperMaterial);
         }
     }
 }

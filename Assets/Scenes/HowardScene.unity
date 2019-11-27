@@ -3833,7 +3833,6 @@ GameObject:
   m_Component:
   - component: {fileID: 263616967}
   - component: {fileID: 263616970}
-  - component: {fileID: 263616969}
   - component: {fileID: 263616968}
   m_Layer: 0
   m_Name: Camera (1)
@@ -3869,14 +3868,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 5703057821365032552}
---- !u!81 &263616969
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263616966}
-  m_Enabled: 1
 --- !u!20 &263616970
 Camera:
   m_ObjectHideFlags: 0
@@ -10500,7 +10491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 807736844}
   - component: {fileID: 807736843}
-  - component: {fileID: 807736842}
   - component: {fileID: 807736845}
   m_Layer: 0
   m_Name: Camera
@@ -10509,14 +10499,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &807736842
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807736841}
-  m_Enabled: 1
 --- !u!20 &807736843
 Camera:
   m_ObjectHideFlags: 0
@@ -27989,6 +27971,7 @@ MonoBehaviour:
   paperToCameraFadeAmount: 1
   paperOverlayColor: {r: 0, g: 0, b: 0, a: 1}
   paperTransparentColor: 1
+  paperMaterial: {fileID: 2100000, guid: 8c40f80db75c00e49842a9c9fb9e4398, type: 2}
   paper: {fileID: 0}
 --- !u!20 &5720892023292568351
 Camera:
@@ -28017,7 +28000,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 80
+  m_Depth: 23
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 8192
