@@ -10,21 +10,21 @@ public class RadarDistance : MonoBehaviour
     
     void Start()
     {
-        audio.Play(safeRadar);
-        audio.Stop(dangerRadar);
+        //GetComponent<AudioSource>().Play(safeRadar);
+        //GetComponent<AudioSource>().Stop(dangerRadar);
     }
 
     void OnCollisionEnter (Collision col)
     {
         if(col.gameObject.tag == "Enemy")
         {
-            AudioSource.PlayClipAtPoint(dangerRadar);
-            AudioSource.Stop(safeRadar);
+            //AudioSource.PlayClipAtPoint(dangerRadar);
+            //AudioSource.Stop(safeRadar);
         }
         else
         {
-            audio.Play(safeRadar);
-            audio.Stop(dangerRadar);
+            //GetComponent<AudioSource>().Play(safeRadar);
+            //GetComponent<AudioSource>().Stop(dangerRadar);
         }
     }
 }

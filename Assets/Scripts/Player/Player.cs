@@ -11,10 +11,6 @@ public class Player : MonoBehaviour
     public float groundRayDistance = 1.1f;
     public LayerMask groundLayer;
     public float currentSpeed;
-    // public int curWeapon;
-    // public GameObject activeWeapon;
-    // public Transform[] equipment;
-    // public Animator arm;
 
     private CharacterController controller;
     private Vector3 motion;
@@ -30,7 +26,6 @@ public class Player : MonoBehaviour
 
     public Camera cam;
     public LayerMask interactLayer;
-    // private bool isSwitching;
 
     public Transform lastPosition;
 
@@ -39,7 +34,6 @@ public class Player : MonoBehaviour
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
         Cursor.lockState = CursorLockMode.Locked;
-        // isSwitching = true;
     }
 
     void Update()
@@ -50,19 +44,6 @@ public class Player : MonoBehaviour
         // float w = Input.GetAxis("Mouse ScrollWheel");
         bool inputJump = Input.GetButtonDown("Jump");
         Move(inputH, inputV);
-        //jump
-        if (IsGrounded() && (Input.GetButtonDown("Jump")))
-        {
-            Jump(jumpHeight);
-        }
-        if (!IsGrounded() && isJumping)
-        {
-            isJumping = false;
-        }
-        if (IsGrounded() && !isJumping)
-        {
-            motion.y = 0f;
-        }
         //toggle Sprint
         //on
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -84,43 +65,6 @@ public class Player : MonoBehaviour
         //applies motion to controller
         motion.y += gravity * Time.deltaTime;
         controller.Move(motion * Time.deltaTime);
-
-        /*if(w > 0f)
-        {
-            curWeapon = curWeapon + 1;
-            arm.SetTrigger("WeaponSwap");
-            isSwitching = true;
-
-        }
-        else if(w < 0f)
-        {
-            curWeapon = curWeapon - 1;
-            arm.SetTrigger("WeaponSwap");
-            isSwitching = true;
-        }
-        if (curWeapon < 0)
-        {
-            curWeapon = equipment.Length - 1;
-        }
-        if (curWeapon > equipment.Length - 1)
-        {
-            curWeapon = 0;
-        }
-        */
-    }
-
-    //test if the player is grounded
-    private bool IsGrounded()
-    {
-        Ray groundRay = new Ray(transform.position, -transform.up);
-        //preforming raycast
-        if (Physics.Raycast(groundRay, groundRayDistance))
-        {
-            return true;// exits function
-        }
-        return false;//exits function
-        //smaller version ^
-        //return Physics.Raycast(transform.position, -transform.up, groundRayDistance);
     }
 
     public void Move(float inputH, float inputV)
@@ -131,12 +75,6 @@ public class Player : MonoBehaviour
 
         motion.x = direction.x * currentSpeed;
         motion.z = direction.z * currentSpeed;
-    }
-
-    public void Jump(float height)
-    {
-        motion.y = jumpHeight;
-        isJumping = true;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -158,24 +96,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    /*public void WeaponCycle()
-    {
-       
-        for (int i = 0; i < equipment.Length; i++)
-        {
-            if (i == curWeapon)
-            {
-                activeWeapon = equipment[i].gameObject;
-                activeWeapon.SetActive(true);
-            }              
-
-            else
-            {
-                equipment[i].gameObject.SetActive(false);
-            }
-        }
-
-    }
-    */
 }
