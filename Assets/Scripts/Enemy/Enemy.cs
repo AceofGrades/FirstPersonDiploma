@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour
     public float rotateSpeed = 100f;
     public float stoppingDistance = 1f;
     public float gravityDistance = 2f;
-    public Rigidbody rigid;
 
     private Transform[] waypoints;
     private int currentIndex = 1;
