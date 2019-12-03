@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private Vector3 motion;
     private bool isJumping = false;
 
-    public Transform player;
+    public GameObject player;
     public Transform currentPosition;
 
     public int playerRoomValue;
