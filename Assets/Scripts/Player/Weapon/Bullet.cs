@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     public GameObject effectsPrefab;
     public Transform line;
+    public float timer = 3.5f;
 
     private Rigidbody rigid;
 
@@ -35,7 +36,7 @@ public class Bullet : MonoBehaviour
         Enemy enemy = col.collider.GetComponent<Enemy>();
         if (enemy)
         {
-            //enemy.TakeDamage(damage);
+            
         }
         // Destroy bullet
         Destroy(gameObject);
