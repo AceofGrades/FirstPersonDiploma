@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private bool isJumping = false;
 
     public GameObject player;
-    public Transform currentPosition;
+    public Vector3 currentPosition;
 
     public int playerRoomValue;
 
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public Camera cam;
     public LayerMask interactLayer;
 
-    public Transform lastPosition;
+    public Vector3 lastPosition;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        currentPosition = transform;
+        currentPosition = transform.position;
         float inputH = Input.GetAxis("Horizontal");
         float inputV = Input.GetAxis("Vertical");
         // float w = Input.GetAxis("Mouse ScrollWheel");
@@ -54,12 +54,12 @@ public class Player : MonoBehaviour
         //off
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            lastPosition.position = player.transform.position;
+            lastPosition = player.transform.position;
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             currentSpeed = walkSpeed;
-            lastPosition.position = player.transform.position;
+            lastPosition = player.transform.position;
 
         }
         //applies motion to controller

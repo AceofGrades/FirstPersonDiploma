@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
     #region Seek
     void Chase()
     {
-        agent.SetDestination(player.lastPosition.position);
+        agent.SetDestination(player.lastPosition);
     }
     void Seek()
     {
@@ -138,9 +138,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            player.lastPosition = player.currentPosition;
             playerDetectionTimer = 0f;
             currentState = State.Idle;
-            target = player.lastPosition;
+            target.position = player.lastPosition;
         }
     }
     #endregion
