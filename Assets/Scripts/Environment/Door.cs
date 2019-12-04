@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
         {
             if (keyPad.isUnlocked == true)
             {
-                anim.Play("doorAnim");
+                anim.Play("door");
             }
         }
         else if (keycodeRequired == false && keycardRequired == true)
@@ -28,7 +28,7 @@ public class Door : MonoBehaviour
         {
             if (keyPad.isUnlocked == true)
             {
-                anim.Play("doorAnim");
+                anim.Play("door");
             }
         }
     }

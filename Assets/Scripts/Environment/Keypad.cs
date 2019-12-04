@@ -13,8 +13,10 @@ public class Keypad : MonoBehaviour
     public Image indicator;
     public string codeOutput;
     public string securityCode;
-    public bool isUnlocked, wrong;
+    public bool isUnlocked = false, wrong;
     public float waitTimer;
+    public Sprite checkMark;
+    public Sprite incorrectMark;
     [SerializeField]
     public KeyCode[] numberPad;
 
@@ -35,7 +37,7 @@ public class Keypad : MonoBehaviour
     {
         if (!(indicator.color == Color.yellow && wrong && isUnlocked))
         {
-            indicator.color = Color.yellow;
+            indicator.sprite = null;
         }
         if (code[code.Length - 1] != "*")
         {
@@ -43,12 +45,12 @@ public class Keypad : MonoBehaviour
             if (codeOutput == securityCode)
             {
                 isUnlocked = true;
-                indicator.color = Color.green;
+                indicator.sprite = checkMark;
             }
             else
             {
                 wrong = true;
-                indicator.color = Color.red;
+                indicator.sprite = incorrectMark;
             }
         }
         if (wrong)
