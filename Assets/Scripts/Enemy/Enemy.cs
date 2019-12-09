@@ -26,6 +26,9 @@ public class Enemy : MonoBehaviour
     public Transform[] vents;
     public int currentVent;
 
+    public bool isStunned = false;
+    public float timer = 5f;
+
     public enum State
     {
         Patrol,
@@ -58,6 +61,12 @@ public class Enemy : MonoBehaviour
     #region Update
     void Update()
     {
+        timer += Time.deltaTime;
+        if (timer >= 3)
+        {
+            isStunned = false;
+            GetComponent<NavMeshAgent>().speed = 3.5f;
+        }
         playerDetectionTimer += Time.deltaTime;
         switch (currentState)
         {
@@ -129,6 +138,13 @@ public class Enemy : MonoBehaviour
                     return;
                 }
             }
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            GetComponent<NavMeshAgent>().speed = 0f;
+            timer = 0f;
+            isStunned = true;
+            Debug.Log("Enemy stopped");
         }
     }
     #endregion
